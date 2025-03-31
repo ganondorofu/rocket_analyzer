@@ -1,0 +1,10 @@
+Time_s:Event
+3.795: All initialization completed. Waiting for flight event...
+115.508: Flight event detected: Flight pin cut. Starting sensor logging and video recording.
+115.852: 加速度検知（条件成立）：自由落下と判断
+116.068: 加速度検知（条件成立）：自由落下と判断
+116.410: Flushed 10 lines to CSV (SD)
+116.892: Flushed 10 lines to CSV (SD)
+116.963: Parachute deployed via 加速度検知による (delayed 1 sec).
+117.390: Flushed 10 lines to CSV (SD)
+117.763: Flushed 10 lines to CSV (SD)
