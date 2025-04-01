@@ -31,15 +31,19 @@ jobs:
       - name: distフォルダにCSVをコピー（念のため）
         run: cp sensor_data50.csv dist/
 
-      - name: アーティファクトをアップロード
+      - name: dist/ と build/ を含む ZIP を作成
+        run: |
+          powershell Compress-Archive -Path dist, build -DestinationPath release.zip
+
+      - name: アーティファクトをアップロード（ZIP）
         uses: actions/upload-artifact@v4
         with:
-          name: executable
-          path: dist/
+          name: release
+          path: release.zip
 
-      - name: GitHub Releases にアップロード
+      - name: GitHub Releases にアップロード（ZIP）
         uses: softprops/action-gh-release@v2
         with:
-          files: dist/*
+          files: release.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
