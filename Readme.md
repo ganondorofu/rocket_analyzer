@@ -18,8 +18,8 @@ csvデータを元にPythonのフレームワークであるplotlyを用いて�
 df = pd.read_csv("sensor_data50.csv")
 ```
 
-::: note info
-動かなかったときは
+### 動かなかったときは
+
 以下のコマンドを入力して、必要なライブラリをインストールしてください。
 
 ```shell
@@ -30,7 +30,6 @@ pip install plotly
 
 ライブラリ不足以外のエラー発生時はIssuesにエラー内容とともに書き込みお願いします
 
-:::
 
 ## 画面
 ![実行画面](gamen.png)
