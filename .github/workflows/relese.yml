@@ -5,6 +5,9 @@ on:
     tags:
       - 'v*'  # タグを push したら実行
 
+permissions:
+  contents: write  # 👈 これを追加！（リリース作成の権限）
+
 jobs:
   build:
     runs-on: windows-latest
