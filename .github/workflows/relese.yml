@@ -3,10 +3,10 @@ name: Build and Release
 on:
   push:
     tags:
-      - 'v*'  # タグを push したら実行
+      - 'v*'
 
 permissions:
-  contents: write  # 👈 これを追加！（リリース作成の権限）
+  contents: write
 
 jobs:
   build:
@@ -27,6 +27,9 @@ jobs:
       - name: 実行ファイルをビルド（CSVを同梱）
         run: |
           pyinstaller --onefile --add-data "sensor_data50.csv;." data1.py
+
+      - name: distフォルダにCSVをコピー（念のため）
+        run: cp sensor_data50.csv dist/
 
       - name: アーティファクトをアップロード
         uses: actions/upload-artifact@v4
