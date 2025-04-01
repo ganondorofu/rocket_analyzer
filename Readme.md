@@ -73,7 +73,8 @@ pip install plotly
 
 ### Lat,Lng,Alt_m,Fix,Sats,
 
-- 緯度、経度、高さ(m)、結果、拾った衛星の数をし増しています
+- 緯度、経度、高さ(m)、有効か無効か、拾った衛星の数をし増しています
+- Fixデータは0の場合は無効、1の場合は有効なデータとして扱えます
 
 ### AccelX_g,AccelY_g,AccelZ_g,
 
