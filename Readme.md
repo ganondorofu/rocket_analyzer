@@ -2,6 +2,13 @@
 
 csvデータを元にPythonのフレームワークであるplotlyを用いて飛行針路を描画するコードです
 
+## 実行ファイルの取得
+- pythonの実行環境がない人へ
+- [Githubリリース](https://github.com/ASK-STEM-official/rocket_analyzer/releases)へアクセスして最新の"release.zip"をダウンロードしてください
+- ダウンロードしたら新しくフォルダを作成し、zipファイルの中身をそこに解凍してください
+- distフォルダにあるdata1.exeを実行することで動作します
+- 別データを使いたい場合、csvファイルの名称をsensor_data50.csvにリネームして上書きしてください
+
 ## 内容物
 
 - data.py 加速度を見れないレガシーコード
