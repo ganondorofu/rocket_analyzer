@@ -2,7 +2,7 @@
 import pandas as pd
 import numpy as np
 import plotly.graph_objects as go
-from scipy.integrate import cumtrapz
+from scipy.integrate import cumulative_trapezoid
 import math
 
 def euler_to_rotation_matrix(roll, pitch, yaw):
@@ -57,8 +57,8 @@ def main():
         R_mat = euler_to_rotation_matrix(roll, pitch, yaw)
         global_acc[i] = R_mat @ acc_data[i]
     global_acc[:, 2] = global_acc[:, 2] - 9.81
-    velocity = cumtrapz(global_acc, dx=dt, initial=0, axis=0)
-    position = cumtrapz(velocity, dx=dt, initial=0, axis=0)
+    velocity = cumulative_trapezoid(global_acc, dx=dt, initial=0, axis=0)
+    position = cumulative_trapezoid(velocity, dx=dt, initial=0, axis=0)
     max_frames = 100
     step = max(1, N // max_frames)
     indices = list(range(0, N, step))
