@@ -23,21 +23,17 @@ jobs:
 
       - name: 依存関係をインストール
         run: |
-          pip install pyinstaller pandas scipy plotly  # 必要なライブラリをインストール
+          pip install pyinstaller pandas scipy plotly
 
       - name: 実行ファイルをビルド（import 対策）
         run: |
-          pyinstaller --onefile --add-data "sensor_data50.csv;." \
-          --hidden-import=pandas --hidden-import=scipy --hidden-import=plotly \
-          --collect-submodules pandas --collect-submodules scipy --collect-submodules plotly \
-          data1.py
+          pyinstaller --onefile --add-data "sensor_data50.csv;." --hidden-import=pandas --hidden-import=scipy --hidden-import=plotly --collect-submodules pandas --collect-submodules scipy --collect-submodules plotly data1.py
 
       - name: distフォルダにCSVをコピー（念のため）
-        run: cp sensor_data50.csv dist/
+        run: copy sensor_data50.csv dist\
 
       - name: dist/ と build/ を含む ZIP を作成
-        run: |
-          powershell Compress-Archive -Path dist, build -DestinationPath release.zip
+        run: powershell Compress-Archive -Path dist, build -DestinationPath release.zip
 
       - name: アーティファクトをアップロード（ZIP）
         uses: actions/upload-artifact@v4
