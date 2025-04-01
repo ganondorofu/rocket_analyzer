@@ -1,4 +1,6 @@
-# coding: utf-8
+#　data1.pyのほうが加速度も閲覧できるので優秀です!!!!!!実行してもいいけどがっかりするよ!!!!!!
+
+#  coding: utf-8
 import pandas as pd
 import numpy as np
 import plotly.graph_objects as go
