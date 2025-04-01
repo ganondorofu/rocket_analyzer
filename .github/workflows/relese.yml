@@ -22,11 +22,15 @@ jobs:
           python-version: '3.10'
 
       - name: 依存関係をインストール
-        run: pip install pyinstaller
-
-      - name: 実行ファイルをビルド（CSVを同梱）
         run: |
-          pyinstaller --onefile --add-data "sensor_data50.csv;." data1.py
+          pip install pyinstaller pandas scipy plotly  # 必要なライブラリをインストール
+
+      - name: 実行ファイルをビルド（import 対策）
+        run: |
+          pyinstaller --onefile --add-data "sensor_data50.csv;." \
+          --hidden-import=pandas --hidden-import=scipy --hidden-import=plotly \
+          --collect-submodules pandas --collect-submodules scipy --collect-submodules plotly \
+          data1.py
 
       - name: distフォルダにCSVをコピー（念のため）
         run: cp sensor_data50.csv dist/
